@@ -1,0 +1,216 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AHALA - About Me</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+        <h1>I'm Ahala!</h1>
+
+        <p>
+            Welcome to my personal webpage! Here, you can learn more about me,
+            my courses, skills, projects, and find links to my online profiles.
+        </p>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#courses">Courses</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#links">Links</a>
+        </nav>
+    </header>
+
+
+    <!-- ABOUT ME -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            Hi! I'm <strong>Ahala</strong>, a
+            10th grade student studying at
+            <strong>The Future Kids School</strong> in Hyderabad.
+        </p>
+
+        <p>
+            I'm interested in programming, Telugu literature,
+            and sports. I enjoy learning new things,
+            working on projects, and exploring my interests
+            outside of school.
+        </p>
+
+        <p>
+            Outside of academics and writing, I play badminton,
+            table tennis, and occasionally volleyball.
+        </p>
+
+    </section>
+
+
+    <!-- COURSES -->
+
+    <section id="courses">
+
+        <h2>Courses & Learning</h2>
+
+        <table>
+
+            <tr>
+                <th>Course</th>
+                <th>Provider</th>
+                <th>Year</th>
+            </tr>
+
+            <tr>
+                <td>Python 101</td>
+                <td>Learn and Help</td>
+                <td>2022</td>
+            </tr>
+
+            <tr>
+                <td>Python 102</td>
+                <td>Learn and Help</td>
+                <td>2023</td>
+            </tr>
+
+            <tr>
+                <td>Python - Data Science</td>
+                <td>Learn and Help</td>
+                <td>2024</td>
+            </tr>
+
+            <tr>
+                <td>Python - Machine Learing</td>
+                <td>Learn and Help</td>
+                <td>2025</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <h2>Technical Skills</h2>
+
+        <ul>
+            <li>Python</li>
+            <li>Data Science</li>
+            <li>Machine Learning</li>
+            <li>Natural Language Processing</li>
+            <li>HTML & CSS</li>
+            <li>GitHub</li>
+            <li>Google Colab</li>
+        </ul>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+
+        <div class="project">
+
+            <h3>Telugu Chandassu Analysis</h3>
+
+            <p>
+                Identifies the meter of Telugu poems and analyzes their structure. 
+                This project was created to assist students and researchers in 
+                understanding the intricacies of Telugu poetry. 
+                It uses natural language processing techniques to analyze the text.
+            </p>
+
+            <p>
+                <strong>Technologies:</strong>
+                NLP, Sarvam AI
+            </p>
+
+            <a href="https://github.com/AhalaAyyalas/MachineLearning/blob/main/FPv2_parts12345.ipynb" target="_blank">
+                View on GitHub
+            </a>
+
+        </div>
+
+
+        <div class="project">
+
+            <h3>Sheroes</h3>
+
+            <p>
+                Sheroes is a book collection of 256 - Inspiring Indian women 
+                which I have co-authored. This project does a data analysis on 
+                various aspects of the book collection, including the distribution of
+                women across different fields, their achievements, the impact, etc.
+            </p>
+
+            <p>
+                <strong>Technologies:</strong>
+                Pandas & Matplotlib, Data Analysis, Data Visualization
+            </p>
+
+            <a href="https://github.com/AhalaAyyalas/DataScience/blob/main/DS_FinalProj.ipynb" target="_blank">
+                View on GitHub
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- LINKS -->
+
+    <section id="links">
+
+        <h2>Find Me Online</h2>
+
+        <p>
+            <a href="https://github.com/AhalaAyyalas" target="_blank">
+                GitHub
+            </a>
+        </p>
+
+        <p>
+            <a href="https://ahala.in/" target="_blank">
+                Personal Website
+            </a>
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 [Ahala Ayyalas]. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+```
