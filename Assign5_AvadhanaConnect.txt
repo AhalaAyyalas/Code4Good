@@ -1,0 +1,589 @@
+# Avadhana Connect
+## Code4Good Web Application Project Specification
+
+**Project type:** Community-focused web application  
+**Initial location:** Hyderabad, Telangana, India  
+**Primary audience:** Telugu literary enthusiasts, Avadhanis, event organisers, Pruchakulu, and people interested in Telugu literature.  
+**Project status:** First-version planning specification
+
+**Tagline:** Discover Avadhanam. Connect with the community.
+
+---
+
+## 1. Project Overview
+
+### 1.1 Purpose
+
+Avadhana Connect is a website that helps people discover and publicise Avadhanam events taking place in Hyderabad.
+
+Information about Avadhanams is often shared through personal contacts, messaging groups, and local literary organisations. People who are not already connected to these circles may not know about events happening nearby.
+
+The website will provide one central place to discover upcoming events and submit information about new events. Its first version will focus on maintaining a reliable event directory rather than becoming a complete social networking platform.
+
+### 1.2 Intended Users
+
+| User group | How they benefit |
+|---|---|
+| Telugu literary enthusiasts | Discover upcoming Avadhanam events. |
+| Avadhanis | Make their events easier to discover. |
+| Event organisers | Publicise events and reach interested audiences. |
+| Pruchakulu | Discover events and, potentially, participation opportunities in the future. |
+| Younger generations | Learn about and engage with Telugu literary traditions. |
+| Older generations | Find event information in one accessible place. |
+| Administrators | Review submissions and maintain accurate information. |
+
+### 1.3 First-Version Scope
+
+The first version will:
+
+- Focus on Avadhanam events in Hyderabad.
+- Allow visitors to browse published events without an account.
+- Allow registered users to submit event information.
+- Require administrator approval before submitted events become public.
+- Allow visitors to search and filter published events.
+- Support an English interface and Telugu event titles and descriptions.
+- Allow submitters to request corrections through the administrator.
+
+### 1.4 Measures of Success
+
+The first version will be considered useful if:
+
+1. Visitors can find upcoming Hyderabad Avadhanam events without needing personal introductions.
+2. Registered users can successfully submit event information.
+3. Administrators can review submissions and publish verified events.
+4. The website works on phones and desktop computers.
+5. A small group of people from the intended community can test the website and provide feedback.
+
+A possible pilot target is to list at least five approved events and ask five community members to try the website.
+
+---
+
+## 2. User Roles and Permissions
+
+The application will have three main roles.
+
+| Role | Description |
+|---|---|
+| Visitor | Anyone who visits the website without signing in. |
+| Registered User | A person with an account who can submit events and track their submissions. |
+| Administrator | A trusted person who reviews submissions and manages event listings. |
+
+### 2.1 Accounts
+
+Visitors do not need an account to browse events.
+
+An account is required to submit an event because the application needs to identify the submitter and provide a way to contact them if information needs clarification.
+
+A registered user does not automatically become an administrator. The first administrator account will be created or authorised manually by the project owner. Public administrator registration will not be allowed.
+
+### 2.2 CRUD Permissions
+
+CRUD means Create, Read, Update, and Delete.
+
+| Information | Visitor | Registered User | Administrator |
+|---|---|---|---|
+| Published events | Read | Read | Create, Read, Update, Archive |
+| Event submissions | No access | Create and Read own status; request corrections | Read, Update, Approve, Reject |
+| User account | No access | Create account, Read and Update permitted own details | Manage account status when authorised |
+| Administrator role | No access | No access | No self-assignment or public role creation |
+
+**Important permission rules:**
+
+- Registered users cannot approve or publish their own submissions.
+- Registered users cannot directly edit a submitted event after submission.
+- They can request corrections, which an administrator reviews.
+- Users cannot view another user's private submission information.
+- Only administrators can publish, reject, edit, or archive event listings.
+- The application must check permissions on the server. Hiding a button is not sufficient protection.
+- Permanent deletion of event records will not be a normal user action. Archiving is preferred.
+
+### 2.3 Event Submission Workflow
+
+1. A visitor chooses Submit an Event.
+2. They register or sign in.
+3. They complete the event submission form.
+4. The application validates the information.
+5. The submission is saved with a Pending status.
+6. The administrator reviews the information.
+7. The administrator approves, rejects, or requests corrections.
+8. Approved events become visible on the public event directory.
+9. The submitter can view their submission status and request corrections if needed.
+
+Only published events appear in public search results.
+
+---
+
+## 3. Essential Features and Functional Requirements
+
+### 3.1 Public Event Browsing
+
+- **FR-01:** The homepage must explain the purpose of Avadhana Connect.
+- **FR-02:** Visitors must be able to view published upcoming events.
+- **FR-03:** Visitors must be able to open an event details page.
+- **FR-04:** Event details must include the title, date, time, venue or locality, event type, Avadhani (if known), organiser, and approved public contact information (if available).
+- **FR-05:** Pending and rejected submissions must not appear in public listings.
+
+### 3.2 User Registration and Event Submission
+
+- **FR-06:** Visitors must be able to create an account using a display name, email address, and password.
+- **FR-07:** Registered users must be able to sign in and sign out.
+- **FR-08:** Registered users must be able to submit events through a clearly labelled form.
+- **FR-09:** The form must identify required and optional fields.
+- **FR-10:** A successful submission must display a confirmation message and Pending status.
+- **FR-11:** The application must record the submitting account and submission date.
+- **FR-12:** Users must be able to view the status of their own submissions.
+- **FR-13:** Users must be able to request corrections through a simple request form or message to the administrator.
+- **FR-14:** Users must not be able to publish, approve, or directly edit their own submitted events.
+
+### 3.3 Administrator Review
+
+- **FR-15:** Administrators must be able to view pending submissions.
+- **FR-16:** Administrators must be able to approve, reject, or request corrections.
+- **FR-17:** Administrators must verify event information using an official source, organiser confirmation, or both when available.
+- **FR-18:** Administrators must be able to edit published event information when necessary.
+- **FR-19:** Administrators must be able to archive cancelled, completed, or outdated events.
+- **FR-20:** The application must display a clear status for each submission.
+
+### 3.4 Search and Filters
+
+- **FR-21:** Visitors must be able to search events by keyword, including event title or Avadhani name.
+- **FR-22:** Visitors must be able to filter events by date, locality, or event type.
+- **FR-23:** The website must display a helpful message when no events match the search.
+- **FR-24:** Each search result must link to its event details page.
+
+### 3.5 Navigation and Feedback
+
+- **FR-25:** All main pages must use consistent navigation and page layouts.
+- **FR-26:** Forms must display understandable error and success messages.
+- **FR-27:** Users must be able to return to the homepage or event listing easily.
+
+---
+
+## 4. Main Pages and User Journey
+
+### 4.1 Main Pages
+
+| Page | Purpose | Access |
+|---|---|---|
+| Home | Introduction and upcoming events | Everyone |
+| Browse Events | Published event list, search and filters | Everyone |
+| Event Details | Information about an event | Everyone |
+| Register | Create an account | Visitors |
+| Sign In | Access an existing account | Everyone |
+| Submit an Event | Submit event information | Registered users |
+| My Submissions | View personal submission statuses and request corrections | Registered users |
+| Admin Dashboard | Review submissions and manage listings | Administrators |
+| About | Explain the project and its purpose | Everyone |
+
+### 4.2 Navigation
+
+The public navigation will contain:
+
+**Home | Browse Events | Submit an Event | About | Sign In**
+
+When a user signs in, the navigation can display My Submissions and Sign Out. Administrators will also see an Admin link.
+
+The website must not display administrator controls to ordinary users.
+
+### 4.3 Example User Journey
+
+A registered user wants to submit an upcoming Ashtavadhanam event.
+
+1. They visit the homepage.
+2. They select Submit an Event.
+3. They sign in or register.
+4. They enter the event title, type, date, time, venue, locality, organiser, and available contact information.
+5. They submit the form.
+6. The application displays: "Thank you. Your event has been submitted for review."
+7. They can see the Pending status in My Submissions.
+8. An administrator checks the event details against an official source or confirms them with the organiser.
+9. The administrator approves the event.
+10. The event appears on the public Browse Events page.
+
+If the submitter notices incorrect information, they can request a correction through My Submissions. The administrator reviews and makes the change.
+
+---
+
+## 5. Branding, Design, and Accessibility
+
+### 5.1 Visual Identity
+
+The website should feel connected to Telugu literature while remaining welcoming to people who are new to Avadhanam.
+
+Suggested design direction:
+
+- A simple logo inspired by Telugu script or traditional literary motifs.
+- A readable colour palette such as deep maroon, warm cream, and a restrained gold accent.
+- Fonts that display both English and Telugu characters correctly.
+- Clear event cards and readable text rather than overly decorative layouts.
+
+### 5.2 Homepage Hero Section
+
+Suggested heading:
+
+**Find Avadhanam events happening around Hyderabad.**
+
+Supporting text:
+
+Explore upcoming literary events, discover participating Avadhanis, and help the Telugu Avadhana community stay connected.
+
+Main action: **Explore Upcoming Events**
+
+Secondary action: **Submit an Event**
+
+### 5.3 Language Support
+
+- The website interface will be in English.
+- Event titles and descriptions may be entered in Telugu.
+- The application must store and display Telugu Unicode characters correctly.
+- A complete English/Telugu interface switch is not required in Version 1.
+
+### 5.4 Responsive Design
+
+**Phone layout:**
+- Compact navigation.
+- Vertically stacked event cards.
+- Clearly visible event titles, dates, and localities.
+- Buttons that are easy to tap.
+- No horizontal scrolling.
+
+**Desktop layout:**
+- Clear navigation bar.
+- Event cards in a readable list or grid.
+- Search and filters above the results.
+- Uncluttered event detail pages.
+
+### 5.5 Accessibility
+
+- Use readable text and sufficient colour contrast.
+- Give every form field a visible label.
+- Use meaningful headings.
+- Make links and buttons understandable.
+- Ensure main actions can be accessed using a keyboard.
+- Show visible keyboard focus.
+- Do not rely on colour alone to communicate event status.
+- Ensure Telugu characters display correctly.
+
+---
+
+## 6. Data Requirements
+
+### 6.1 Event Information
+
+| Field | Required? |
+|---|---|
+| Event title | Yes |
+| Event type | Yes |
+| Date | Yes |
+| Start time | Yes |
+| Venue name | Yes |
+| Locality | Yes |
+| City | Yes; initially Hyderabad |
+| Avadhani name | Optional |
+| Organiser name | Yes |
+| Public contact method | Optional; requires organiser approval |
+| Description | Optional |
+| Status | Yes; managed by the application or administrator |
+| Submitted by | Yes; recorded by the application |
+| Submission date | Yes |
+| Last updated | Yes |
+
+### 6.2 User Account Information
+
+The application will store only information necessary to manage accounts and submissions:
+
+- User ID
+- Display name
+- Email address
+- Securely hashed password
+- User role
+- Account creation date
+- Account status
+
+Personal information such as home addresses, dates of birth, school details, and personal phone numbers will not be collected unless a future feature has a clear need for them.
+
+### 6.3 Privacy of Contact Information
+
+- A submitter's email address must remain private.
+- An organiser's email address or enquiry link may be displayed only with permission.
+- The administrator must check that public contact information is approved before publishing it.
+- Visitors must not be able to access private account or submission information.
+
+### 6.4 Relationships Between Records
+
+- One registered user may submit multiple events.
+- Each event submission is linked to the account that submitted it.
+- Administrators review and manage event records.
+- Event status determines whether an event appears publicly.
+
+The exact database technology will be selected after checking the tools supported by the Code4Good course.
+
+---
+
+## 7. Forms and Validation
+
+### 7.1 Event Submission Validation
+
+The application must check that:
+
+- Event title is not blank.
+- An event type is selected.
+- The date is valid.
+- The start time is valid.
+- Venue and locality are provided.
+- City is Hyderabad in Version 1.
+- Organiser name is provided.
+- Optional email addresses and links use valid formats.
+- Required and optional fields are clearly identified.
+
+If an error occurs, the application should explain how to correct it and preserve previously entered information where practical.
+
+### 7.2 Registration Validation
+
+- Display name must not be blank.
+- Email address must be valid and not already registered.
+- Password must meet a reasonable minimum length.
+- Passwords must never be stored as plain text.
+
+### 7.3 Feedback Messages
+
+Examples:
+
+- Success: "Your event has been submitted for review."
+- Error: "Please enter the event date."
+- No results: "No events match these filters. Try another date or locality."
+- Sign-in error: "The email address or password is incorrect."
+
+Validation must happen on the server as well as in the browser.
+
+---
+
+## 8. Security and Privacy
+
+The application must follow these basic rules:
+
+1. Passwords must be securely hashed and never stored as plain text.
+2. Protected actions must require server-side permission checks.
+3. Users must only be able to view their own private submission information.
+4. All submitted information must be validated on the server.
+5. User-entered text must be displayed safely.
+6. Public administrator registration must not be allowed.
+7. Authenticated sessions must be handled securely.
+8. Only necessary personal information should be collected.
+9. Organiser contact information must only be displayed with permission.
+10. Fictional information and test accounts should be used during development.
+11. A basic database backup and maintenance plan should be decided before a public pilot.
+
+The project owner will be responsible for deciding who receives administrator access.
+
+---
+
+## 9. Development Milestones
+
+The project allows approximately 3–4 development hours per week. These milestones are a suggested sequence, not fixed deadlines.
+
+### Milestone 1: Public Website
+
+**Goal:** Create a website where visitors can browse sample events.
+
+Tasks:
+- Sketch the homepage and event submission screen.
+- Decide the basic design and navigation.
+- Create the homepage, event listing, and event detail pages.
+- Add fictional sample events.
+- Check phone and desktop layouts.
+
+**Completion:** A visitor can browse sample events and view their details.
+
+### Milestone 2: Accounts and Event Submission
+
+**Goal:** Allow registered users to submit events.
+
+Tasks:
+- Choose a suitable backend and database.
+- Create user and event data structures.
+- Build registration and sign-in.
+- Build the event submission form.
+- Add validation.
+- Save submissions with Pending status.
+- Allow users to view their own submission statuses and request corrections.
+
+**Completion:** A registered test user can submit an event and see its pending status.
+
+### Milestone 3: Administration and Testing
+
+**Goal:** Complete the basic event publication process.
+
+Tasks:
+- Build a protected administrator page.
+- Allow administrators to review, approve, reject, edit, and archive events.
+- Add keyword search and basic filters.
+- Ensure only published events appear publicly.
+- Test privacy, permissions, forms, and responsive layouts.
+- Ask a few people to try the website and provide feedback.
+
+**Completion:** A test event can be submitted, reviewed, published, found through search, and archived.
+
+---
+
+## 10. Acceptance Criteria
+
+### AC-01: Normal Event Browsing
+
+**Given** a visitor opens Avadhana Connect,  
+**When** they browse published events and select one,  
+**Then** they can view its title, date, time, venue, event type, and available approved public information.
+
+### AC-02: Invalid Event Submission
+
+**Given** a registered user is completing the event form,  
+**When** they leave a required field blank or enter an invalid date,  
+**Then** the application displays an understandable error and does not save the incomplete submission as a valid event.
+
+### AC-03: Forbidden Administrator Action
+
+**Given** a registered user is not an administrator,  
+**When** they try to access the administrator dashboard or approve an event,  
+**Then** the application denies access and does not perform the action.
+
+### AC-04: Phone Layout
+
+**Given** a visitor opens the website on a phone-sized screen,  
+**When** they browse event listings and details,  
+**Then** the content remains readable, the main actions are accessible, and horizontal scrolling is not required.
+
+### AC-05: Keyboard Accessibility
+
+**Given** a visitor uses only a keyboard,  
+**When** they navigate the main pages and forms,  
+**Then** they can reach and activate the main links and buttons, and the currently focused element is visibly indicated.
+
+---
+
+## 11. Testing Checklist
+
+### Public Browsing
+- [ ] Published events appear publicly.
+- [ ] Pending and rejected events remain private.
+- [ ] Event details display correctly.
+- [ ] Search works with event titles and Avadhani names.
+- [ ] Filters work.
+- [ ] A helpful no-results message appears.
+
+### Event Submission
+- [ ] Visitors must register or sign in before submitting.
+- [ ] Registered users can submit complete events.
+- [ ] Required fields are validated.
+- [ ] Invalid dates and contact details are rejected.
+- [ ] Successful submissions receive Pending status.
+- [ ] Users can view their own submission statuses.
+- [ ] Users can request corrections.
+
+### Administrator Permissions
+- [ ] Registered users cannot access administrator pages.
+- [ ] Administrators can review submissions.
+- [ ] Administrators can approve and reject submissions.
+- [ ] Administrators can edit and archive events.
+- [ ] Unauthorised requests to protected actions are denied.
+
+### Design and Accessibility
+- [ ] Pages work on phones and desktops.
+- [ ] Text has sufficient contrast.
+- [ ] Forms have visible labels.
+- [ ] Main actions can be reached by keyboard.
+- [ ] Focus indicators are visible.
+- [ ] Telugu text displays correctly.
+
+---
+
+## 12. Features Postponed Until Future Versions
+
+| Feature | Why it is postponed |
+|---|---|
+| Pruchakulu directory and profiles | Requires additional personal information and privacy decisions. |
+| Organiser requests for Pruchakulu | Requires a separate matching or contact workflow. |
+| Avadhani biographies and profiles | Requires more information and a verification process. |
+| Location-based notifications | Requires notification services and location preferences. |
+| Event reminders | Requires notification delivery and user preferences. |
+| Full bilingual interface | Requires translation and additional testing. |
+| Expansion beyond Hyderabad | Requires broader location coverage and ongoing listing maintenance. |
+| Event photos and videos | Requires storage decisions and permission from people appearing in the content. |
+| Advanced analytics | Not necessary for the first working version. |
+
+---
+
+## 13. Decisions and Remaining Questions
+
+### Decisions Made
+
+| Topic | Decision |
+|---|---|
+| Event submissions | Registered users can submit events. |
+| Language | English interface with Telugu event content supported. |
+| Verification | Use official sources and/or organiser confirmation depending on availability. |
+| Public contact details | Display an approved organiser contact method, such as an email address or enquiry link. |
+| Corrections | Submitters request corrections; administrators make the changes. |
+| Initial location | Hyderabad. |
+| Public browsing | No account required. |
+
+### Still to Confirm
+
+1. Which event types should be included in the first dropdown? For example, Ashtavadhanam, Shatavadhanam, and other formats.
+2. Where will the application be hosted?
+3. Who will maintain the website and manage administrator access after the project presentation?
+4. Which backend and database are suitable for the technologies covered in Code4Good?
+5. How long should archived events and inactive accounts be retained?
+
+These decisions can be finalised with the project mentor before development.
+
+---
+
+## 14. AI Usage Note
+
+AI tools were used to brainstorm the project idea, organise the requirements, and review the specification against the Common Themes checklist and the Scholarships Project Specification.
+
+The suggestions were reviewed and adapted to the actual purpose and available development time of Avadhana Connect. Decisions about registered event submissions, Telugu content support, event verification, approved public contact information, and correction requests were made by the project owner.
+
+The final specification reflects these decisions rather than copying another project's features or technology choices.
+
+---
+
+## 15. Reference Materials
+
+1. **Code4Good – Web Application Development: Common Themes**  
+   https://github.com/sjasthi/code4good/blob/main/Presentations/web_app_project_common_themes.md
+
+2. **Pathways to Scholarships – Web Application Requirements Specification**  
+   https://github.com/sjasthi/ICS325-Web-Application-Development/blob/main/Final-Project/ics325_scholarships_requirements.md
+
+3. **Code4Good – Week 8 Assignment**  
+   https://github.com/sjasthi/code4good/blob/main/weekly-planner/week-8.md
+
+The Common Themes document was used as a planning checklist. The Scholarships specification was used as a structural example. Its technology stack, five user roles, and larger development plan were not copied because they are unnecessary for this project.
+
+---
+
+## 16. Version 1 Definition of Done
+
+Avadhana Connect Version 1 will be ready for a small community pilot when:
+
+- Visitors can browse published Hyderabad Avadhanam events without an account.
+- Registered users can submit events.
+- Submissions remain private until administrator approval.
+- Users can view their own submission statuses and request corrections.
+- Administrators can review and publish or reject events.
+- Visitors can search and filter published events.
+- Approved public contact information is displayed appropriately.
+- The website works on phone and desktop screens.
+- Basic validation, privacy, and permission checks have been tested.
+- A few people from the intended community have tried the website and provided feedback.
+
+**Guiding principle:** Build a dependable place to discover and publicise Avadhanams first. Add matching, notifications, profiles, and wider geographic coverage only after the basic event directory works well.
+
+
+AI Use-Note
+## AI Usage Note
+
+I used ChatGPT as an AI assistance tool while developing this project specification. It helped me organise my ideas, identify the different user roles and their permissions, define the application's features, and structure the requirements.
+
+I reviewed the suggestions, made decisions based on my project goals, and edited the specification to reflect my own understanding of Avadhana Connect. The final project idea, requirements, and design decisions are my own.
